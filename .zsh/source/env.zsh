@@ -9,14 +9,4 @@ export RUSTUP_HOME=$HOME/.local/share/rustup
 export DOTBARE_DIR="$HOME/dotfiles"
 export zdpl=$zd/repos
 export zsrc=$zd/source
-
-
-path+=(
-    $HOME/.bin
-    $HOME/.local/bin
-    $HOME/.local/share/cargo/bin/bin
-    $GOPATH/bin
-    $HOME/.config/nvm/bin
-    $HOME/.config/nvm/versions/node/v12.18.2/bin/node
-)
-
+export zfnc=$zd/functions

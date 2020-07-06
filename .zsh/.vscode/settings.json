@@ -1,0 +1,5 @@
+{
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appNamepath to file}",
+    "editor.smoothScrolling": true,
+    "bashIde.globPattern": "**/*@(.sh|.inc|.bash|.command|.zsh)"
+}

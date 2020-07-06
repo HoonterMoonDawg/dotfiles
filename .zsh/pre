@@ -1,1 +1,17 @@
+#!/bin/zsh
+
 fpath=("$zdpl/zsh-completions/src" $fpath)
+
+typeset -U PATH path
+
+path=(
+    $HOME/.bin
+    $HOME/.local/bin
+    $HOME/.local/share/cargo/bin/bin
+    $GOPATH/bin
+    $HOME/.config/nvm/bin
+    $HOME/.config/nvm/versions/node/v12.18.2/bin/node
+    $PYENV_ROOT/bin
+    $path
+)
+

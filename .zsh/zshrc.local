@@ -1,33 +1,46 @@
 #zmodload zsh/zprof
 
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi 
-# example of a basic local zshrc
-#source ~/.config/powerlevel10k/powerlevel10k.zsh-theme 
 autoload autosource # for plugins
 autosource sudo # enable sudo plugin
 autosource navi
+autosource pyenv
 
-#source $zd/repos/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# Add argument to path only if it's not present
+function extend_path() {
+    [[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
+}
 
-autoload sprunge # something with output | sprunge, and sprunge < somefile
+function conditional_extend_path() {
+    [[ -a $1 ]] && extend_path $(dirname $1)
+}
 
-# get a non-default prompt
-#autoload -Uz promptinit
-#promptinit
-#prompt spaceship
+# lazy load pyenv
 
-#autoload -U bashcompinit
-#bashcompinit
-#eval "$(register-python-argcomplete pipx)"
+export PYENV_ROOT="${PYENV_ROOT:-${HOME}/.pyenv}"
+conditional_extend_path "$PYENV_ROOT/bin/pyenv"
+if type pyenv &> /dev/null || [[ -a "$PYENV_ROOT/bin/pyenv" ]]; then
+  function pyenv() {
+    unset pyenv
+    extend_path "$PYENV_ROOT/shims"
+    eval "$(command pyenv init -)"
+    if which pyenv-virtualenv-init > /dev/null; then
+      eval "$(pyenv virtualenv-init -)"
+      export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    fi
+    pyenv $@
+  }
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#source <(navi widget zsh)
+
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+
+for file in $zd/functions/*; do
+    autoload -Uz $file
+done
 #zprof
