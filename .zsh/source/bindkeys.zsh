@@ -12,8 +12,22 @@
 #   ctrl + d     : delete char at current position (d for delete)
 #   ctrl + k     : delete from character to end of line
 #   alt  + .     : cycle through previous args
+zmodload -i zsh/complist
 
-# Start navi and assign binding
+# Emacs bindings 
+bindkey -e
+
+# Return accepts current selection
+bindkey -M menuselect '^M' .accept-line
+
+# alt-x : insert last command result
+zmodload -i zsh/parameter
+insert-last-command-output() {
+    LBUFFER+="$(eval $history[$((HISTCMD-1))])"
+}
+
+zle -N insert-last-command-output
+bindkey '^[x' insert-last-command-output
 
 # Ctrl+left/right: Move by word
 bindkey '^[[1;5D' backward-word
