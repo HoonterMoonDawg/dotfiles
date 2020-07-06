@@ -9,5 +9,4 @@ _evalcache thefuck --alias
 source "$zdpl/formarks/formarks.plugin.zsh"
 source "$zdpl/zaw/zaw.zsh"
 source "$zdpl/zsh-autopair/autopair.zsh"
-source "$zdpl/zsh-autosuggestions"
 source $zd/repos/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh

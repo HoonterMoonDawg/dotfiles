@@ -10,3 +10,4 @@ export DOTBARE_DIR="$HOME/dotfiles"
 export zdpl=$zd/repos
 export zsrc=$zd/source
 export zfnc=$zd/functions
+export CHEAT_USE_FZF=true

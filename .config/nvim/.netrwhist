@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/hoontdmoon/.zsh/source'
+let g:netrw_dirhist_7='/home/hoontermood/code/pygoat/lists'
+let g:netrw_dirhist_6='/home/hoontermood/code/pygoat'
+let g:netrw_dirhist_5='/home/hoontermood/code/pygoat/lists'
+let g:netrw_dirhist_4='/home/hoontermood/code/pygoat'
+let g:netrw_dirhist_3='/home/hoontermood/code/pygoat/lists'
+let g:netrw_dirhist_2='/home/hoontermood/code/pygoat'
+let g:netrw_dirhist_1='/home/hoontermood/code/pygoat/lists'
+let g:netrw_dirhist_0='/home/hoontermood/code/pygoat'
+let g:netrw_dirhist_9='/home/hoontermood/code/pygoat/lists'
