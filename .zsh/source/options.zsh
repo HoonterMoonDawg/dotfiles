@@ -1,0 +1,3 @@
+setopt extendedhistory
+setopt sharehistory
+setopt appendhistory

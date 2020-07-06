@@ -1,0 +1,1 @@
+fpath=("$zdpl/zsh-completions/src" $fpath)

@@ -1,0 +1,33 @@
+#zmodload zsh/zprof
+
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi 
+# example of a basic local zshrc
+#source ~/.config/powerlevel10k/powerlevel10k.zsh-theme 
+autoload autosource # for plugins
+autosource sudo # enable sudo plugin
+autosource navi
+
+#source $zd/repos/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+autoload sprunge # something with output | sprunge, and sprunge < somefile
+
+# get a non-default prompt
+#autoload -Uz promptinit
+#promptinit
+#prompt spaceship
+
+#autoload -U bashcompinit
+#bashcompinit
+#eval "$(register-python-argcomplete pipx)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#source <(navi widget zsh)
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+#zprof
